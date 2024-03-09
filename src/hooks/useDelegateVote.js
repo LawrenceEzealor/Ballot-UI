@@ -36,14 +36,14 @@ const useDelegateVote = (address) => {
     } catch (error) {
       // console.log(error);
       let errorText;
-      if (error.reason === "You already voted.") {
-        errorText = "You have voted already!";
+      if (error.reason === "You have already voted") {
+        errorText = "You've voted already!";
       } else if (error.reason === "Self-delegation is disallowed.") {
-        errorText = "You cannot delegation yourself!";
+        errorText = "You can't delegate yourself!";
       } else if (error.reason === "Found loop in delegation.") {
-        errorText = "You cannot delegate the address that delegated you!";
+        errorText = "You cannot delegate the address that appointed you!";
       } else {
-        errorText = "An unknown error occured!";
+        errorText = "unknown error";
       }
 
       toast.error(`Error: ${errorText}`);
